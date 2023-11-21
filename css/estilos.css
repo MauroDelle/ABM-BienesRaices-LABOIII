@@ -84,14 +84,14 @@ body
 #section-cards {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan en una nueva línea cuando no hay suficiente espacio */
+    flex-wrap: wrap; 
 }
 
 .card {
-    margin: 20px 10px; /* Ajusté el margen para que haya más espacio entre las cartas */
+    margin: 20px 10px; 
     border: 1px solid yellow;
     background-color: rgba(240, 180, 150, 0.8);
-    width: 30%; /* Ajusté el ancho de las cartas */
+    width: 30%; 
 }
 
 h3 

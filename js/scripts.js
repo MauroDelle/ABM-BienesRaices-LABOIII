@@ -18,24 +18,22 @@ import {
     getAnuncioPorIdAjax
 } from "./db.js";
 
-// SPINNER en ActualizarTabla con un delay muy bajito, y spinner en la conexion con el json-server.
 
-let id = null; // ID Global para modificar o eliminar items.
-let index = null; // Index Global para modificar o eliminar items.
+
+let id = null; 
+let index = null; 
 const $form = document.forms[0];
 const $containerTabla = document.getElementById("tabla");
 const $containerBotones = document.getElementById("botones-container");
 const $select = document.getElementById("filtro");
-const listaTipos = await getTiposAjax(); // Importo Tipos desde la BD
-const lista = await getAnunciosAjax(); // Importo Anuncios desde la BD
+const listaTipos = await getTiposAjax();
+const lista = await getAnunciosAjax(); 
 let banderaFiltros = false;
 let listaFiltrada = filtrarTabla($containerTabla, lista, $select.value);
 let listadoCheck = listaFiltrada;
 document.getElementById("btnGuardar").disabled = false;
 const checkbox = document.querySelectorAll(".chbox");
-checkbox.forEach(element => {element.checked = true;}); // Cada vez que se recarga la pagina vuelvo a inicializar los checkboxes
-
-// Limpiar form en caso de F5
+checkbox.forEach(element => {element.checked = true;}); 
 window.addEventListener("load", ()=>{$form.reset();});
 
 $containerBotones.addEventListener("click", async (e) => 
@@ -62,8 +60,8 @@ $containerBotones.addEventListener("click", async (e) =>
                     );
                 limpiarForm();
                 createAnuncioAjax(newItem);   //Ajax 
-                //createAnuncioAxios(newItem); //Axios
-                //createAnuncioFetch(newItem); //Fetch
+                 //createAnuncioAxios(newItem); Axios
+                 //createAnuncioFetch(newItem); Fetch
             }
         }
         else
@@ -108,7 +106,7 @@ $containerBotones.addEventListener("click", async (e) =>
 
 $containerTabla.addEventListener("click", (e)=>
 {
-    if(e.target.matches("td")) // Solamente cuando haces click sobre TD y no en cualquier lado de la ventana.
+    if(e.target.matches("td")) 
     {
         let selectedItem;
         index = e.target.parentElement.getAttribute("data-id");
@@ -120,7 +118,7 @@ $containerTabla.addEventListener("click", (e)=>
         limpiarValidaciones();
     }
     else if(e.target.matches("th"))
-    {   //TODO (EL SORT NO ESTA TERMINADO TOTALMENTE, FUNCIONA PARCIALMENTE, FALTAN ALGUNOS DETALLES)
+    {   
         let claveSort = e.target.textContent;
         ordenarTabla(listadoCheck, claveSort);
         limpiarForm();
