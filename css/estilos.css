@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Nosifer&display=swap');
+
+nav
+{
+    background-color: rgba(95, 21, 145, 0.979);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#informacion
+{
+    font-family: 'Nosifer';
+    text-align: center;
+}
+
+#logo
+{
+    height: 150px;
+    width: 150px;
+}
+
+ul
+{
+    list-style-type: none;
+}
+
+a
+{
+    text-decoration: none;
+    color: black;
+    border: 1px solid white;
+    padding: 5px;
+    background-color: rgba(243, 193, 168, 0.8);
+    border-radius: 5px;
+}
+
+#body
+{
+    background-image: url(/img/asd123.png);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+li
+{
+    padding: 10px;
+}
+
+#ul-header
+{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+#ul-footer
+{
+    display: flex;
+    flex-direction: row;
+}
+
+h1
+{
+    color: white;
+}
+
+body
+{
+    background-image: url(../img/Fondo.png);
+    background-size: 100vw;
+    background-attachment: fixed;
+}
+
+#logo
+{
+    height: 150px;
+    width: 150px;
+}
+
+#section-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en una nueva línea cuando no hay suficiente espacio */
+}
+
+.card {
+    margin: 20px 10px; /* Ajusté el margen para que haya más espacio entre las cartas */
+    border: 1px solid yellow;
+    background-color: rgba(240, 180, 150, 0.8);
+    width: 30%; /* Ajusté el ancho de las cartas */
+}
+
+h3 
+{
+    text-transform: capitalize;
+    text-decoration: underline;
+    color: rgb(4, 4, 104);
+    padding: 0px 15px;
+    display: flex;
+}
+
+p
+{
+    display: flex;
+    justify-content: center;
+    font-size: 1.2em;
+}
+
+button 
+{
+    display: block;
+    border-radius: 10px;
+    background-color: crimson;
+    margin: 10px auto;
+    font-size: 1.5em;
+    padding: 5px;
+    width: 65%;
+}
+
+/* Tamaño iconos */
+.icono
+{
+    height: 50px;
+    width: 50px;
+}
+
+/* Screen Ajustable */
+@media screen and (max-width: 800px) {
+    #ul-header, #ul-footer
+    {
+        display: flex;
+        flex-direction: column;
+    }
+}
