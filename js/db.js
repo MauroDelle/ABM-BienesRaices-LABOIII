@@ -1,11 +1,11 @@
-import {girarSpinner, detenerSpinner} from './tabla.js';
 const miURL = "http://localhost:3000/monstruos";
 const tiposURL = "http://localhost:3000/tipos";
+import {girarSpinner, detenerSpinner} from './tabla.js';
 
 
 
 
-/**
+/** DOCUMENTACION
  * Realiza una solicitud AJAX para obtener la lista de tipos de monstruos.
  *
  * @function
@@ -47,11 +47,29 @@ export const getTiposAjax = () =>
     });
 };
 
+
+/** DOCUMENTACION
+ * Realiza una solicitud Fetch para obtener la lista de monstruos.
+ *
+ * @function
+ * @returns {Promise<Array<Object>>} Una promesa que se resuelve con un array de monstruos o se rechaza con un objeto de error.
+ * @throws {Object|String} Un objeto que contiene la respuesta de la solicitud Fetch o un mensaje de error si la solicitud no tiene éxito.
+ * @async
+ * @example
+ * // Uso del método
+ * getCardsFetch()
+ *   .then((monstruos) => {
+ *     // Manejar la lista de monstruos obtenida
+ *   })
+ *   .catch((error) => {
+ *     // Manejar el error de la solicitud
+ *   });
+ */
 export const getCardsFetch = () => 
 {
     return new Promise((resolve, reject) => 
     {
-        fetch(miURL) // El Fetch retorna una promesa.
+        fetch(miURL)
         .then((respuesta)=>{
             if(respuesta.ok)
             {
@@ -71,8 +89,26 @@ export const getCardsFetch = () =>
 
 
 
-// AJAX ===================================================================     
+// AJAX 
 // GET
+
+/** DOCUMENTACION
+ * Realiza una solicitud Ajax mediante XMLHttpRequest para obtener la lista de anuncios.
+ *
+ * @function
+ * @returns {Promise<Array<Object>>} Una promesa que se resuelve con un array de anuncios o se rechaza con un objeto de error.
+ * @throws {Object} Un objeto que contiene el estado y el mensaje de error si la solicitud no tiene éxito.
+ * @async
+ * @example
+ * // Uso del método
+ * getAnunciosAjax()
+ *   .then((anuncios) => {
+ *     // Manejar la lista de anuncios obtenida
+ *   })
+ *   .catch((error) => {
+ *     // Manejar el error de la solicitud
+ *   });
+ */
 export const getAnunciosAjax = () => 
 {
     girarSpinner();
@@ -98,7 +134,18 @@ export const getAnunciosAjax = () =>
     });
 };
 
-// GET por ID
+
+/** DOCUMENTACION
+ * Realiza una solicitud Ajax mediante XMLHttpRequest para obtener un anuncio específico por su ID.
+ *
+ * @function
+ * @param {number} id - El ID del anuncio que se desea obtener.
+ * @returns {void}
+ * @async
+ * @example
+ * // Uso del método
+ * getAnuncioPorIdAjax(1);
+ */
 export const getAnuncioPorIdAjax = (id) => 
 {
     const xhr = new XMLHttpRequest();
@@ -120,6 +167,26 @@ export const getAnuncioPorIdAjax = (id) =>
     xhr.send();
 };
 
+
+/** DOCUMENTACION
+ * Realiza una solicitud Ajax mediante XMLHttpRequest para crear un nuevo anuncio.
+ *
+ * @function
+ * @param {Object} anuncio - Objeto que contiene la información del nuevo anuncio.
+ * @returns {void}
+ * @async
+ * @example
+ * // Uso del método
+ * const nuevoAnuncio = {
+ *    nombre: "Nuevo Monstruo",
+ *    alias: "Alias Monstruo",
+ *    defensa: "Estaca",
+ *    fuerza: 75,
+ *    miedo: 90,
+ *    tipo: "Vampiro"
+ * };
+ * createAnuncioAjax(nuevoAnuncio);
+ */
 export const createAnuncioAjax = (anuncio) => 
 {
     girarSpinner();
@@ -144,6 +211,20 @@ export const createAnuncioAjax = (anuncio) =>
     xhr.send(JSON.stringify(anuncio));
 };
 
+
+
+/**
+ * Realiza una solicitud Ajax mediante XMLHttpRequest para eliminar un anuncio por su ID.
+ *
+ * @function
+ * @param {number} id - ID del anuncio que se va a eliminar.
+ * @returns {void}
+ * @async
+ * @example
+ * // Uso del método
+ * const anuncioId = 123; // Reemplazar con el ID del anuncio que se desea eliminar
+ * deleteAnuncioAjax(anuncioId);
+ */
 export const deleteAnuncioAjax = (id) => 
 {
     girarSpinner();
@@ -166,6 +247,9 @@ export const deleteAnuncioAjax = (id) =>
     xhr.open("DELETE", miURL + "/" + id);
     xhr.send();
 };
+
+
+
 
 export const updateAnuncioAjax = (anuncio) => 
 {
