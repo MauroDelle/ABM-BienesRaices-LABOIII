@@ -1,0 +1,75 @@
+{
+  "monstruos": [
+    {
+      "id": 1700153797425,
+      "nombre": "Elena",
+      "fuerza": 65,
+      "alias": "Nocturna",
+      "defensa": "Estaca",
+      "miedo": 45,
+      "tipo": "Vampiro"
+    },
+    {
+      "id": 1700153797426,
+      "nombre": "Hector",
+      "fuerza": 40,
+      "alias": "Huesitos",
+      "defensa": "Pocion",
+      "miedo": 20,
+      "tipo": "Esqueleto"
+    },
+    {
+      "id": 1700153797427,
+      "nombre": "Lilith",
+      "fuerza": 90,
+      "alias": "Sombra",
+      "defensa": "Plata",
+      "miedo": 75,
+      "tipo": "Fantasma"
+    },
+    {
+      "id": 1700153797428,
+      "nombre": "Damian",
+      "fuerza": 55,
+      "alias": "Mordedor",
+      "defensa": "Estaca",
+      "miedo": 40,
+      "tipo": "Hombre Lobo"
+    },
+    {
+      "id": 1700153797429,
+      "nombre": "Carmen",
+      "fuerza": 75,
+      "alias": "Hechicera",
+      "defensa": "Crucifijo",
+      "miedo": 60,
+      "tipo": "Bruja"
+    },
+    {
+      "id": 1700153797430,
+      "nombre": "Oscar",
+      "fuerza": 30,
+      "alias": "Errante",
+      "defensa": "Pocion",
+      "miedo": 15,
+      "tipo": "Zombie"
+    },
+    {
+      "id": 1700153797431,
+      "nombre": "Isabel",
+      "fuerza": 85,
+      "alias": "Susurrante",
+      "defensa": "Plata",
+      "miedo": 55,
+      "tipo": "Fantasma"
+    }
+  ],
+  "tipos": [
+    "Esqueleto",
+    "Zombie",
+    "Vampiro",
+    "Fantasma",
+    "Bruja",
+    "Hombre Lobo"
+  ]
+}
