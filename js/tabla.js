@@ -11,41 +11,41 @@ const crearCabecera = (elemento)=>
 {
     const thead = document.createElement('thead');
     const headRow = document.createElement('tr');
-    headRow.setAttribute("class", "cabecera"); // Clase cabecera para CSS.
+    headRow.setAttribute("class", "cabecera");
     for (const key in elemento) 
     {
-        if(key === "id") continue; // Oculto el id.
+        if(key === "id") continue; 
         const th = document.createElement('th');
         th.setAttribute("class", "ths");
         th.textContent = key;
         headRow.appendChild(th);
     }
+
     thead.appendChild(headRow);
     return thead;
 };
 
 const crearCuerpo = (data)=>
 {
-    if(!Array.isArray(data)) return null; // Validacion
+    if(!Array.isArray(data)) return null; 
     const tBody = document.createElement('tbody');
     data.forEach((elemento, index)=>
     {
         const tr = document.createElement('tr');
         if(index % 2 == 0)
         {
-            tr.classList.add("rowPar"); // rowPar para alternar colores.
+            tr.classList.add("rowPar");
         }
         else
         {
-            tr.classList.add("rowImpar"); // rowImpar para alternar colores.
+            tr.classList.add("rowImpar");
         }
         for (const key in elemento) 
         {
             const td = document.createElement('td');
-            if(key === "id") // Oculto id pero lo mantengo como atributo.
+            if(key === "id") 
             {
                 tr.dataset.id = index;
-                // tr.setAttribute("data-id", elemento[key]); //Otra opcion
             }
             else
             {
@@ -58,7 +58,7 @@ const crearCuerpo = (data)=>
     return tBody;
 };
 
-const DELAY = 100; // Tiempo en milisegundos para mostrar el spinner
+const DELAY = 100;
 
 export const actualizarTabla = (contenedor, data)=>
 {
@@ -72,7 +72,7 @@ export const actualizarTabla = (contenedor, data)=>
     contenedor.appendChild(crearTabla(data));
 };
 
-let orden = true; // Variable Global para ordenamiento de la tabla.
+let orden = true; 
 
 export function ordenarTabla(lista, clave)
 {
@@ -92,7 +92,6 @@ export function ordenarTabla(lista, clave)
     }
 }
 
-// ==================== Spinner ====================
 export function girarSpinner() 
 {
     const divSpinner = document.getElementById("spinner");
@@ -102,7 +101,6 @@ export function girarSpinner()
     imagen.setAttribute("alt", "Spinner girando");
     imagen.setAttribute("id", "spinner-girando");
 
-    // Agregar una clase para aplicar la animación de rotación
     imagen.classList.add("rotar-rapido");
 
     document.getElementById("btnGuardar").disabled = true;

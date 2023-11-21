@@ -41,14 +41,11 @@ $containerBotones.addEventListener("click", async (e) =>
     const boton = e.target.textContent;
     if(boton == "Guardar")
     {
-        // Desestructuracion del objeto form
         const {txtId, txtNombre, txtAlias, rdoDefensa, txtMiedo, opcTipo, txtFuerza} = $form;
         if(txtId.value === "")
         {
-            //Validacion
             if(validarDatos($form))
             {
-                // ALTA
                 const newItem = new Monstruo(
                     Date.now(), 
                     txtNombre.value,
@@ -66,10 +63,8 @@ $containerBotones.addEventListener("click", async (e) =>
         }
         else
         {
-            //Validacion
             if(validarDatos($form) && confirm("¿Desea guardar los cambios?"))
             {
-                // MODIFICACION
                 const newItem = new Monstruo(
                     parseInt(txtId.value), 
                     txtNombre.value,
@@ -88,8 +83,7 @@ $containerBotones.addEventListener("click", async (e) =>
     }
     else if(boton == "Eliminar")
     {   
-        // BAJA
-        if(index && confirm("¿Desea ELIMINAR el item seleccionado?"))
+        if(index && confirm("¿ELIMINAR?"))
         {
             deleteAnuncioAjax(id); //Ajax
             //deleteAnuncioAxios(id); //Axios
@@ -158,9 +152,6 @@ function cargarTipos(lista)
     });
 }
 
-// ORDEN DE DATOS: FILTRADO -> CHECKBOXES -> ORDENAMIENTO POR COLUMNA.
-
-// FILTRADO
 function filtrarTabla(contenedor, lista, filtro)
 {
     if(filtro != "Todos")
@@ -185,12 +176,11 @@ $select.addEventListener("change", () =>
     limpiarForm();
 });
 
-// CHECKBOXES
 const modificarTabla = () =>
 {
     const checked = {};
     checkbox.forEach((elem) => {checked[elem.name] = elem.checked});
-    listadoCheck = listaFiltrada.map((elem) => // MAPEO
+    listadoCheck = listaFiltrada.map((elem) =>
     {
         const newElement = {};
         for (const key in elem)
@@ -206,5 +196,3 @@ const modificarTabla = () =>
 };
 
 checkbox.forEach((elem) => elem.addEventListener("click", modificarTabla));
-
-// Reduce en tabla->promedio

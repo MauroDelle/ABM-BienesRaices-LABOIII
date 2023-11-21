@@ -2,6 +2,26 @@ import {girarSpinner, detenerSpinner} from './tabla.js';
 const miURL = "http://localhost:3000/monstruos";
 const tiposURL = "http://localhost:3000/tipos";
 
+
+
+
+/**
+ * Realiza una solicitud AJAX para obtener la lista de tipos de monstruos.
+ *
+ * @function
+ * @returns {Promise<Array<string>>} Una promesa que se resuelve con un array de tipos o se rechaza con un objeto de error.
+ * @throws {Object} Un objeto que contiene el estado de la solicitud y su descripción si la solicitud no tiene éxito.
+ * @async
+ * @example
+ * // Uso del método
+ * getTiposAjax()
+ *   .then((tipos) => {
+ *     // Manejar la lista de tipos obtenida
+ *   })
+ *   .catch((error) => {
+ *     // Manejar el error de la solicitud
+ *   });
+ */
 export const getTiposAjax = () => 
 {
     girarSpinner();
@@ -100,7 +120,6 @@ export const getAnuncioPorIdAjax = (id) =>
     xhr.send();
 };
 
-// POST
 export const createAnuncioAjax = (anuncio) => 
 {
     girarSpinner();
@@ -125,7 +144,6 @@ export const createAnuncioAjax = (anuncio) =>
     xhr.send(JSON.stringify(anuncio));
 };
 
-// DELETE
 export const deleteAnuncioAjax = (id) => 
 {
     girarSpinner();
@@ -149,7 +167,6 @@ export const deleteAnuncioAjax = (id) =>
     xhr.send();
 };
 
-// PUT
 export const updateAnuncioAjax = (anuncio) => 
 {
     girarSpinner();
@@ -174,10 +191,6 @@ export const updateAnuncioAjax = (anuncio) =>
     xhr.send(JSON.stringify(anuncio));
 };
 
-// AXIOS ===========================================================================================================================================
-//<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-
-// GET
 export const getAnunciosAxios = () => 
 {
     girarSpinner();
@@ -198,7 +211,6 @@ export const getAnunciosAxios = () =>
     });
 };
 
-// POST
 export const createAnuncioAxios = async (anuncio) => 
 {
     girarSpinner();
@@ -216,7 +228,7 @@ export const createAnuncioAxios = async (anuncio) =>
     }
 };
 
-// DELETE
+
 export const deleteAnuncioAxios = async (id) => 
 {
     girarSpinner();
@@ -235,7 +247,7 @@ export const deleteAnuncioAxios = async (id) =>
     }
 };
 
-// PUT
+
 export const updateAnuncioAxios = async (anuncio) => 
 {
     girarSpinner();
@@ -253,15 +265,13 @@ export const updateAnuncioAxios = async (anuncio) =>
     }
 };
 
-// FETCH =====================================================================================================================================
-// GET
 
 export const getAnunciosFetch = () => 
 {
     girarSpinner();
     return new Promise((resolve, reject) => 
     {
-        fetch(miURL) // El Fetch retorna una promesa.
+        fetch(miURL) 
         .then((respuesta)=>{
             if(respuesta.ok)
             {
@@ -281,33 +291,10 @@ export const getAnunciosFetch = () =>
     });
 };
 
-// GET ASYNC
-// export const getAnunciosFetch = async () => 
-// {
-//     try 
-//     {
-//         girarSpinner();
-//         let respuesta = await fetch(miURL);
-//         if(!respuesta.ok) throw Error(`Error: ${respuesta.status} - ${respuesta.statusText}`);
-
-//         let data = await respuesta.json();
-//         return data;
-//     } 
-//     catch(error) 
-//     {
-//         console.error(error.message);
-//     }
-//     finally
-//     {
-//         detenerSpinner();
-//     }
-// };
-
-// POST
 export const createAnuncioFetch = (anuncio) => 
 {
     girarSpinner();
-    fetch(miURL, {    // Objeto como segundo parametro.
+    fetch(miURL, { 
         method: "POST",
         headers: {"Content-Type": "application/json;charset=utf-8"},
         body: JSON.stringify(anuncio)
@@ -330,7 +317,6 @@ export const createAnuncioFetch = (anuncio) =>
     })
 };
 
-// DELETE
 export const deleteAnuncioFetch = (id) => 
 {
     girarSpinner();
@@ -349,11 +335,10 @@ export const deleteAnuncioFetch = (id) =>
     })
 };
 
-// PUT
 export const updateAnuncioFetch = (anuncio) => 
 {
     girarSpinner();
-    fetch(miURL + "/" + anuncio.id, {    // Objeto como segundo parametro.
+    fetch(miURL + "/" + anuncio.id, {   
         method: "PUT",
         headers: {"Content-Type": "application/json;charset=utf-8"},
         body: JSON.stringify(anuncio)

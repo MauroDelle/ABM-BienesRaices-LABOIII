@@ -4,7 +4,6 @@ const lista = await getCardsFetch();
 
 const seccionAnuncios = document.querySelector("#section-cards");
 
-// LISTA DE ICONOS
 const listaIconos = ["./img/power.png", "./img/klipartz.com.png", "./img/espantap.png", "./img/5710331.png","./img/bruja.png"];
 
 lista.forEach((elemento) => {
