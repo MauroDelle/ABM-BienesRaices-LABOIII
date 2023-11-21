@@ -36,6 +36,8 @@ const checkbox = document.querySelectorAll(".chbox");
 checkbox.forEach(element => {element.checked = true;}); 
 window.addEventListener("load", ()=>{$form.reset();});
 
+
+
 $containerBotones.addEventListener("click", async (e) => 
 {
     const boton = e.target.textContent;
@@ -156,7 +158,7 @@ function filtrarTabla(contenedor, lista, filtro)
 {
     if(filtro != "Todos")
     {
-        let listaFiltrada = lista.filter((elemento)=>elemento.defensa == filtro); // FILTRO
+        let listaFiltrada = lista.filter((elemento)=>elemento.defensa == filtro);
         actualizarTabla(contenedor, listaFiltrada);
         banderaFiltros = true;
         return listaFiltrada;

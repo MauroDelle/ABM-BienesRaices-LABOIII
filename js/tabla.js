@@ -14,7 +14,7 @@ const crearCabecera = (elemento)=>
     headRow.setAttribute("class", "cabecera");
     for (const key in elemento) 
     {
-        if(key === "id") continue; 
+        if(key === "id") continue;
         const th = document.createElement('th');
         th.setAttribute("class", "ths");
         th.textContent = key;

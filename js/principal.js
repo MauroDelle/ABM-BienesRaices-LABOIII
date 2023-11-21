@@ -1,6 +1,9 @@
 import {getCardsFetch} from "./db.js";
 
+
 const lista = await getCardsFetch();
+
+monstruos.sort((m1, m2)=>m1.miedo - m2.miedo);
 
 const seccionAnuncios = document.querySelector("#section-cards");
 
